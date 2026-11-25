@@ -1,0 +1,20 @@
+{
+  "domain": "solar_forecast",
+  "name": "Solar Forecast",
+  "after_dependencies": [
+    "recorder"
+  ],
+  "codeowners": [
+    "@maarken"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "weather"
+  ],
+  "documentation": "https://github.com/maarken/SolarForecast",
+  "integration_type": "service",
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/maarken/SolarForecast/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

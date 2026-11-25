@@ -1,0 +1,239 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Site and weather",
+        "description": "Location of the PV system and the weather forecast sources.",
+        "data": {
+          "name": "Name",
+          "latitude": "Latitude",
+          "longitude": "Longitude",
+          "elevation": "Elevation",
+          "weather_entities": "Weather entities",
+          "inverter_ac_power": "Inverter AC power limit",
+          "inverter_efficiency": "Inverter nominal efficiency"
+        },
+        "data_description": {
+          "name": "Name for this PV system.",
+          "latitude": "Site latitude in decimal degrees (north positive).",
+          "longitude": "Site longitude in decimal degrees (east positive).",
+          "elevation": "Site elevation above sea level, in metres. Affects air mass and clear-sky irradiance.",
+          "weather_entities": "One or more weather entities (for example Pirate Weather or OpenWeatherMap) that provide hourly forecasts with cloud coverage. When several are selected their cloud cover and temperature are averaged.",
+          "inverter_ac_power": "Maximum AC output of the inverter(s), in watts. Output is clipped at this value. Use 0 if there is no limit to apply.",
+          "inverter_efficiency": "Nominal (CEC/European) inverter efficiency."
+        }
+      },
+      "array": {
+        "title": "First PV array",
+        "description": "Describe one group of panels that share the same tilt and azimuth. You can add more arrays later.",
+        "data": {
+          "name": "Array name",
+          "dc_power": "DC nameplate power",
+          "tilt": "Tilt",
+          "azimuth": "Azimuth",
+          "mounting": "Mounting",
+          "temp_coefficient": "Power temperature coefficient",
+          "losses": "DC system losses",
+          "module_efficiency": "Module efficiency",
+          "albedo": "Ground albedo"
+        },
+        "data_description": {
+          "name": "For example: South roof.",
+          "dc_power": "Total STC nameplate power of the modules in this array, in watts.",
+          "tilt": "Panel tilt from horizontal: 0° is flat, 90° is vertical.",
+          "azimuth": "Compass direction the panels face: 0° north, 90° east, 180° south, 270° west.",
+          "mounting": "How the modules are mounted; this sets how hot the cells run.",
+          "temp_coefficient": "Pmax temperature coefficient from the module datasheet (typically -0.26 to -0.45 %/°C).",
+          "losses": "Combined soiling, wiring, mismatch, degradation and nameplate losses.",
+          "module_efficiency": "Module efficiency at STC from the datasheet; used by the cell temperature model.",
+          "albedo": "Fraction of light reflected by the ground (0.2 typical, about 0.6–0.8 with fresh snow)."
+        }
+      },
+      "reconfigure": {
+        "title": "Site and weather",
+        "data": {
+          "latitude": "Latitude",
+          "longitude": "Longitude",
+          "elevation": "Elevation",
+          "weather_entities": "Weather entities",
+          "inverter_ac_power": "Inverter AC power limit",
+          "inverter_efficiency": "Inverter nominal efficiency"
+        },
+        "data_description": {
+          "latitude": "Site latitude in decimal degrees (north positive).",
+          "longitude": "Site longitude in decimal degrees (east positive).",
+          "elevation": "Site elevation above sea level, in metres. Affects air mass and clear-sky irradiance.",
+          "weather_entities": "One or more weather entities (for example Pirate Weather or OpenWeatherMap) that provide hourly forecasts with cloud coverage. When several are selected their cloud cover and temperature are averaged.",
+          "inverter_ac_power": "Maximum AC output of the inverter(s), in watts. Output is clipped at this value. Use 0 if there is no limit to apply.",
+          "inverter_efficiency": "Nominal (CEC/European) inverter efficiency."
+        }
+      }
+    },
+    "error": {
+      "no_weather_entities": "Select at least one weather entity.",
+      "no_cloud_forecast": "None of the selected weather entities provides an hourly or daily forecast with cloud coverage."
+    }
+  },
+  "config_subentries": {
+    "array": {
+      "entry_type": "PV array",
+      "initiate_flow": {
+        "user": "Add PV array",
+        "reconfigure": "Edit PV array"
+      },
+      "step": {
+        "user": {
+          "title": "Add PV array",
+          "data": {
+            "name": "Array name",
+            "dc_power": "DC nameplate power",
+            "tilt": "Tilt",
+            "azimuth": "Azimuth",
+            "mounting": "Mounting",
+            "temp_coefficient": "Power temperature coefficient",
+            "losses": "DC system losses",
+            "module_efficiency": "Module efficiency",
+            "albedo": "Ground albedo"
+          },
+          "data_description": {
+            "name": "For example: South roof.",
+            "dc_power": "Total STC nameplate power of the modules in this array, in watts.",
+            "tilt": "Panel tilt from horizontal: 0° is flat, 90° is vertical.",
+            "azimuth": "Compass direction the panels face: 0° north, 90° east, 180° south, 270° west.",
+            "mounting": "How the modules are mounted; this sets how hot the cells run.",
+            "temp_coefficient": "Pmax temperature coefficient from the module datasheet (typically -0.26 to -0.45 %/°C).",
+            "losses": "Combined soiling, wiring, mismatch, degradation and nameplate losses.",
+            "module_efficiency": "Module efficiency at STC from the datasheet; used by the cell temperature model.",
+            "albedo": "Fraction of light reflected by the ground (0.2 typical, about 0.6–0.8 with fresh snow)."
+          }
+        },
+        "reconfigure": {
+          "title": "Edit PV array",
+          "data": {
+            "name": "Array name",
+            "dc_power": "DC nameplate power",
+            "tilt": "Tilt",
+            "azimuth": "Azimuth",
+            "mounting": "Mounting",
+            "temp_coefficient": "Power temperature coefficient",
+            "losses": "DC system losses",
+            "module_efficiency": "Module efficiency",
+            "albedo": "Ground albedo"
+          },
+          "data_description": {
+            "name": "For example: South roof.",
+            "dc_power": "Total STC nameplate power of the modules in this array, in watts.",
+            "tilt": "Panel tilt from horizontal: 0° is flat, 90° is vertical.",
+            "azimuth": "Compass direction the panels face: 0° north, 90° east, 180° south, 270° west.",
+            "mounting": "How the modules are mounted; this sets how hot the cells run.",
+            "temp_coefficient": "Pmax temperature coefficient from the module datasheet (typically -0.26 to -0.45 %/°C).",
+            "losses": "Combined soiling, wiring, mismatch, degradation and nameplate losses.",
+            "module_efficiency": "Module efficiency at STC from the datasheet; used by the cell temperature model.",
+            "albedo": "Fraction of light reflected by the ground (0.2 typical, about 0.6–0.8 with fresh snow)."
+          }
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Calibration and tuning",
+        "data": {
+          "production_sensor": "Production sensor",
+          "turbidity_scale": "Turbidity scale"
+        },
+        "data_description": {
+          "production_sensor": "Leave empty to disable calibration. Changing the sensor discards previously measured values.",
+          "turbidity_scale": "Multiplier on the Linke turbidity climatology. Values above 1 model hazier skies (lower clear-sky output); below 1, clearer skies. Leave at 1, especially when calibration is enabled."
+        },
+        "description": "Select a sensor that measures your actual PV production so the forecast can learn your system's real losses, horizon shading and your weather provider's cloud bias. It needs long-term statistics: an energy sensor (kWh, state class total or total increasing) or a power sensor (W, state class measurement). Calibration improves over 1-3 weeks of data."
+      }
+    },
+    "error": {
+      "production_sensor_missing": "The selected sensor does not exist.",
+      "production_sensor_invalid": "The sensor must be an energy sensor with state class total/total increasing, or a power sensor with state class measurement."
+    }
+  },
+  "selector": {
+    "mounting": {
+      "options": {
+        "open_rack": "Open rack (free-standing, well ventilated)",
+        "roof_gap": "Roof mounted with air gap",
+        "integrated": "Building integrated (no rear ventilation)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "power_production_now": {
+        "name": "Estimated power production - now"
+      },
+      "energy_production_today": {
+        "name": "Estimated energy production - today"
+      },
+      "energy_production_today_remaining": {
+        "name": "Estimated energy production - remaining today"
+      },
+      "energy_production_tomorrow": {
+        "name": "Estimated energy production - tomorrow"
+      },
+      "energy_production_d2": {
+        "name": "Estimated energy production - day 3"
+      },
+      "energy_production_d3": {
+        "name": "Estimated energy production - day 4"
+      },
+      "energy_production_d4": {
+        "name": "Estimated energy production - day 5"
+      },
+      "energy_production_d5": {
+        "name": "Estimated energy production - day 6"
+      },
+      "energy_production_d6": {
+        "name": "Estimated energy production - day 7"
+      },
+      "energy_current_hour": {
+        "name": "Estimated energy production - this hour"
+      },
+      "energy_next_hour": {
+        "name": "Estimated energy production - next hour"
+      },
+      "power_highest_peak_today": {
+        "name": "Highest power peak - today"
+      },
+      "power_highest_peak_time_today": {
+        "name": "Highest power peak time - today"
+      },
+      "power_highest_peak_tomorrow": {
+        "name": "Highest power peak - tomorrow"
+      },
+      "power_highest_peak_time_tomorrow": {
+        "name": "Highest power peak time - tomorrow"
+      },
+      "clear_sky_power_now": {
+        "name": "Clear-sky power - now"
+      },
+      "cloud_cover_now": {
+        "name": "Forecast cloud cover - now"
+      },
+      "calibration_factor": {
+        "name": "Calibration factor"
+      },
+      "forecast_error_day_ahead": {
+        "name": "Day-ahead forecast error (7 days)"
+      }
+    }
+  },
+  "exceptions": {
+    "no_weather_data": {
+      "message": "No usable weather forecast with cloud coverage: {details}"
+    }
+  },
+  "issues": {
+    "no_arrays": {
+      "title": "{name} has no PV arrays",
+      "description": "The Solar Forecast entry {name} has no PV arrays configured, so no forecast can be made. Add a PV array to the entry from its integration page."
+    }
+  }
+}
